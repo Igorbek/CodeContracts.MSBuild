@@ -158,17 +158,25 @@
         Condition="'$(CodeContractsEnumObligations)' == 'true'">$(CodeContractCodeAnalysisOptions) -enum</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsRedundantAssumptions)' == 'true'">$(CodeContractCodeAnalysisOptions) -check assumptions</CodeContractCodeAnalysisOptions>        
-	 <CodeContractCodeAnalysisOptions
+     <CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsAssertsToContractsCheckBox)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest asserttocontracts</CodeContractCodeAnalysisOptions>        
+    	<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsRedundantTests)' == 'true'">$(CodeContractCodeAnalysisOptions) -check conditionsvalidity</CodeContractCodeAnalysisOptions>        		
 	  <CodeContractCodeAnalysisOptions
 	    Condition="'$(CodeContractsMissingPublicRequiresAsWarnings)' == 'true'">$(CodeContractCodeAnalysisOptions) -missingPublicRequiresAreErrors</CodeContractCodeAnalysisOptions>
 	  <CodeContractCodeAnalysisOptions
+	    Condition="'$(CodeContractsMissingPublicEnsuresAsWarnings)' == 'true'">$(CodeContractCodeAnalysisOptions) -missingPublicEnsuresAreErrors</CodeContractCodeAnalysisOptions>
+	<CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsSuggestAssumptionsForCallees)' == 'true'">$(CodeContractCodeAnalysisOptions)  -suggest calleeassumes</CodeContractCodeAnalysisOptions>
+	<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestAssumptions)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest assumes</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestRequires)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest requires</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest methodensures -suggest propertyensures</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsNecessaryEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest necessaryensures</CodeContractCodeAnalysisOptions>
+	<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestObjectInvariants)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest objectinvariants</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestReadonly)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest readonlyfields </CodeContractCodeAnalysisOptions>
@@ -180,7 +188,9 @@
         Condition="'$(CodeContractsInferObjectInvariants)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer objectinvariants</CodeContractCodeAnalysisOptions>     
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsCacheAnalysisResults)' == 'true'">$(CodeContractCodeAnalysisOptions) -cache</CodeContractCodeAnalysisOptions>
-      <CodeContractCodeAnalysisOptions
+    <CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsSkipAnalysisIfCannotConnectToCache)' == 'true'">$(CodeContractCodeAnalysisOptions) -forcecacheserver=true</CodeContractCodeAnalysisOptions>
+   <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsFailBuildOnWarnings)' == 'true'">$(CodeContractCodeAnalysisOptions) -failOnWarnings</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsCacheDirectory)' != ''">$(CodeContractCodeAnalysisOptions) -cacheFileDirectory "$(CodeContractsCacheDirectory)"</CodeContractCodeAnalysisOptions>
