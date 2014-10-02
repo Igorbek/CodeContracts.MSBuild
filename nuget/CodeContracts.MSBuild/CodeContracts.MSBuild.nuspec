@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>CodeContracts.MSBuild</id>
-        <version>1.6.60617.1502-alpha</version>
+        <version>1.7.10908.1101-beta</version>
         <title>Microsoft Code Contracts standalone package for MSBuild</title>
         <authors>Igor Oleinikov</authors>
         <projectUrl>https://github.com/Igorbek/CodeContracts.MSBuild</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Helper package to use with build servers. Contains all CodeContracts binaries and integrates into MSBuild build process.</description>
-        <releaseNotes>Included CodeContracts v1.6.60617.15.</releaseNotes>
-        <tags>CodeContracts Code Contract MSBuild</tags>
+        <releaseNotes>Included CodeContracts v1.7.10908.11.</releaseNotes>
+        <tags>CodeContracts Code Contracts MSBuild</tags>
     </metadata>
     <files>
         <file src="build\CodeContracts.MSBuild.targets" target="build\CodeContracts.MSBuild.targets" />
