@@ -185,6 +185,8 @@
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsInferEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer methodensures</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsInferEnsuresAutoProperties)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer autopropertiesensures</CodeContractCodeAnalysisOptions>
+    <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsInferObjectInvariants)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer objectinvariants</CodeContractCodeAnalysisOptions>     
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsCacheAnalysisResults)' == 'true'">$(CodeContractCodeAnalysisOptions) -cache</CodeContractCodeAnalysisOptions>
@@ -218,7 +220,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-      <_CodeContractsCCCheckArguments>-nobox -nologo -nopex -remote  -suggest=!! -premode combined -framework:$(TargetFrameworkVersion) -warninglevel $(CodeContractsAnalysisWarning) $(CodeContractCodeAnalysisOptions) "-resolvedPaths:@(ReferencePath)" "-libPaths:@(CodeContractsAllLibPaths) " "$(DeclarativeAssemblyPath)"</_CodeContractsCCCheckArguments>
+      <_CodeContractsCCCheckArguments>-nobox -nologo -nopex -remote  -suggest=!! -premode combined -suggest codefixes -framework:$(TargetFrameworkVersion) -warninglevel $(CodeContractsAnalysisWarning) $(CodeContractCodeAnalysisOptions) "-resolvedPaths:@(ReferencePath)" "-libPaths:@(CodeContractsAllLibPaths) " "$(DeclarativeAssemblyPath)"</_CodeContractsCCCheckArguments>
     </PropertyGroup>
 
     <ItemGroup>

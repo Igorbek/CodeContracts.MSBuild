@@ -174,7 +174,9 @@
         Condition="'$(CodeContractsSuggestRequires)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest requires</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest methodensures -suggest propertyensures</CodeContractCodeAnalysisOptions>
-      <CodeContractCodeAnalysisOptions
+    <CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsInferEnsuresAutoProperties)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer autopropertiesensures</CodeContractCodeAnalysisOptions>
+		<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsNecessaryEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest necessaryensures</CodeContractCodeAnalysisOptions>
 	<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestObjectInvariants)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest objectinvariants</CodeContractCodeAnalysisOptions>
@@ -218,7 +220,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-      <_CodeContractsCCCheckArguments>-nobox -nologo -nopex -remote  -suggest=!! -premode combined -framework:$(TargetFrameworkVersion) -warninglevel $(CodeContractsAnalysisWarning) $(CodeContractCodeAnalysisOptions) "-resolvedPaths:@(ReferencePath)" "-libPaths:@(CodeContractsAllLibPaths) " "$(DeclarativeAssemblyPath)"</_CodeContractsCCCheckArguments>
+      <_CodeContractsCCCheckArguments>-nobox -nologo -nopex -remote  -suggest=!! -premode combined -suggest codefixes -framework:$(TargetFrameworkVersion) -warninglevel $(CodeContractsAnalysisWarning) $(CodeContractCodeAnalysisOptions) "-resolvedPaths:@(ReferencePath)" "-libPaths:@(CodeContractsAllLibPaths) " "$(DeclarativeAssemblyPath)"</_CodeContractsCCCheckArguments>
     </PropertyGroup>
 
     <ItemGroup>
