@@ -79,7 +79,12 @@
           <PropertyGroup>
             <CodeContractsReferenceAssemblyLibPath>$(CodeContractsInstallDir)Contracts\.NETFramework\v4.5</CodeContractsReferenceAssemblyLibPath>
           </PropertyGroup>
-        </When>
+        </When> 
+        <When Condition="'$(TargetFrameworkVersion)' == 'v4.7'">
+          <PropertyGroup>
+            <CodeContractsReferenceAssemblyLibPath>$(CodeContractsInstallDir)Contracts\.NETFramework\v4.5</CodeContractsReferenceAssemblyLibPath>
+          </PropertyGroup>
+        </When>     
 				<Otherwise>
           <PropertyGroup>
             <CodeContractsReferenceAssemblyLibPath>$(CodeContractsInstallDir)Contracts\v3.5</CodeContractsReferenceAssemblyLibPath>
