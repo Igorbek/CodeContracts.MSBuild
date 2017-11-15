@@ -2,13 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>CodeContracts.MSBuild</id>
-        <version>1.10.0</version>
+        <version>1.10.1</version>
         <title>Microsoft Code Contracts standalone package for MSBuild</title>
         <authors>Igor Oleinikov</authors>
         <projectUrl>https://github.com/Igorbek/CodeContracts.MSBuild</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Helper package to use with build servers. Contains all CodeContracts binaries and integrates into MSBuild build process.</description>
-        <releaseNotes>1.10: Stop using pre-installed CodeContract by default.
+        <releaseNotes>1.10.1: Add .Net Framework 4.7.1 target support
+1.10: Stop using pre-installed CodeContract by default.
 1.9: CodeContracts has been updated to v1.9.10714.2 (released on 12/3/2014).</releaseNotes>
         <tags>CodeContracts Code Contracts MSBuild</tags>
     </metadata>
