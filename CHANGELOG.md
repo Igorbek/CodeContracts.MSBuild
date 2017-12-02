@@ -31,4 +31,12 @@ All notable changes to this project will be documented in this file.
 
 ## [1.7.11106.1001-beta] - 2014-11-11
 
-## [1.7.10908.1101-beta] - 2014-10-03
+## 1.7.10908.1101-beta - 2014-10-03
+
+[Unreleased]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.10.1...HEAD
+[1.10.1]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.10.0...v1.10.1
+[1.10.0]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.9.10714.3...v1.10.0
+[1.9.10714.3]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.9.10714.2001...v1.9.10714.3
+[1.9.10714.2001]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.7.11202.1001...v1.9.10714.2001
+[1.7.11202.1001]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.7.11106.1001-beta...v1.7.11202.1001
+[1.7.11106.1001-beta]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.7.10908.1101-beta...v1.7.11106.1001-beta
