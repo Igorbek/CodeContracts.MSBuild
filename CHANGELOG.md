@@ -5,7 +5,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added change log
 ### Changed
-- CodeContracts binaries have been updated to 1.10.20606.1-rc2 (released on 6 Jun 2016)
+- CodeContracts binaries have been updated to 1.10.20606.1-rc2 (released on 6 Jun 2016) (#9)
+- Improve .NET framework targets support
 
 ## [1.10.1] - 2017-11-15
 ### Added
