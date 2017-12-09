@@ -17,7 +17,7 @@
         <tags>CodeContracts Code Contracts MSBuild</tags>
     </metadata>
     <files>
-        <file src="build\CodeContracts.MSBuild.targets" target="build\CodeContracts.MSBuild.targets" />
+        <file src="build\CodeContracts.MSBuild.*" target="build\" />
         <file src="..\..\Contracts\**" target="Contracts" />
     </files>
 </package>

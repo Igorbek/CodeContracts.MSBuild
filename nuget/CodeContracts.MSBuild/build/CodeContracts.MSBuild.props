@@ -1,0 +1,113 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!--=====================================================================
+        CODE CONTRACT DEFAULTS.
+        All defaults are set as they were by the late Visual Studio extension,
+        except for enabling the static checker by default (otherwise the user
+        would not be adding the package in the first place).
+
+        Names in comments correspond to the the original property page.
+        ======================================================================-->
+
+    <!--=====================================================================
+        Runtime checking. If false, whole section is irrelevant.
+       ======================================================================-->
+    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+
+    <!-- Assembly mode, 1 = standard, 2 = advanced.  -->
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+
+    <!-- Level drop-down: Full, Pre and Post, Preconditions, ReleaseRequires, None -->
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <!-- [ ] Only public surface contracts -->
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <!-- [ ] Assert on contract failure -->
+    <CodeContractsRuntimeThrowOnFailure>False</CodeContractsRuntimeThrowOnFailure>
+    <!-- [ ] Call-site requires checking -->
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <!-- [ ] Skip quantifiers -->
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+
+    <!-- Customr rewriter methods / Assembly -->
+    <CodeContractsCustomRewriterAssembly />
+    <!-- Customr rewriter methods / Class -->
+    <CodeContractsCustomRewriterClass />
+
+    <!--=====================================================================
+        Static checking. If false, whole section is irrelevant.
+       ======================================================================-->
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+
+    <!-- [X] Check non-null -->
+    <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
+    <!-- [X] Check enum values -->
+    <CodeContractsEnumObligations>True</CodeContractsEnumObligations>
+    <!-- [X] Check redundant assume -->
+    <CodeContractsRedundantAssumptions>True</CodeContractsRedundantAssumptions>
+    <!-- [ ] Show entry assumptions -->
+    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <!-- [ ] Suggest requires -->
+    <CodeContractsSuggestRequires>False</CodeContractsSuggestRequires>
+    <!-- [X] Suggest asserts to contracts -->
+    <CodeContractsAssertsToContractsCheckBox>True</CodeContractsAssertsToContractsCheckBox>
+    <!-- [X] Infer requires -->
+    <CodeContractsInferRequires>True</CodeContractsInferRequires>
+    <!-- [ ] Infer ensures -->
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <!-- [X] Check arithmetic -->
+    <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
+    <!-- [X] Check missing public requires -->
+    <CodeContractsMissingPublicRequiresAsWarnings>True</CodeContractsMissingPublicRequiresAsWarnings>
+    <!-- [X] Check redundant conditionals -->
+    <CodeContractsRedundantTests>True</CodeContractsRedundantTests>
+    <!-- [ ] Show external assumptions -->
+    <CodeContractsSuggestAssumptionsForCallees>False</CodeContractsSuggestAssumptionsForCallees>
+    <!-- [X] Suggest readonly fields -->
+    <CodeContractsSuggestReadonly>True</CodeContractsSuggestReadonly>
+    <!-- [X] Suggest necessary ensures -->
+    <CodeContractsNecessaryEnsures>True</CodeContractsNecessaryEnsures>
+    <!-- [ ] Infer invariants for readonly -->
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <!-- [X] Infer ensures for autoproperties -->
+    <CodeContractsInferEnsuresAutoProperties>True</CodeContractsInferEnsuresAutoProperties>
+    <!-- [ ] Fail build on warnings -->
+    <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
+    <!-- [X] Check array bounds -->
+    <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
+    <!-- [ ] Check missing public ensures -->
+    <CodeContractsMissingPublicEnsuresAsWarnings>False</CodeContractsMissingPublicEnsuresAsWarnings>
+    <!-- [ ] Suggest object invariants -->
+    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
+
+    <!-- [X] Cache results -->
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <!-- SQL Server -->
+    <CodeContractsSQLServerOption />
+    <!-- [ ] Skip the analysis if cannot connect to cache -->
+    <CodeContractsSkipAnalysisIfCannotConnectToCache>False</CodeContractsSkipAnalysisIfCannotConnectToCache>
+    <!-- Warning level slider, 0..3 -->
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+    <!-- [X] Be optimistic on external API -->
+    <CodeContractsBeingOptimisticOnExternal>True</CodeContractsBeingOptimisticOnExternal>
+    <!-- [ ] Baseline -->
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <!-- Baseline file -->
+    <CodeContractsBaseLineFile />
+
+    <!-- Contract reference assembly -->
+    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <!-- [ ] Emit contracts into XML doc file -->
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+
+    <!--=====================================================================
+        Advanced options.
+       ======================================================================-->
+
+    <!-- Extra contract library paths -->
+    <CodeContractsLibPaths />
+    <!-- Extra runtime checker options -->
+    <CodeContractsExtraRewriteOptions />
+    <!-- Extra static checker options -->
+    <CodeContractsExtraAnalysisOptions />
+  </PropertyGroup>
+</Project>
