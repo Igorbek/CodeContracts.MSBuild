@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [1.11-alpha] - 2017-12-12
+## [1.11-alpha] - 2017-12-02
 ### Added
 - Added change log
 ### Changed
