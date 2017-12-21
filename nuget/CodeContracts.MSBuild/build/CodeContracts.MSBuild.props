@@ -129,7 +129,7 @@
      '$(CodeContractsUseBaseLine)' == ''">False</CodeContractsUseBaseLine>
     <!-- Baseline file -->
     <CodeContractsBaseLineFile Condition="
-     '$()CodeContractsBaseLineFile' == ''" />
+     '$(CodeContractsBaseLineFile)' == ''" />
 
     <!-- Contract reference assembly -->
     <CodeContractsReferenceAssembly Condition="
