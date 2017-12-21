@@ -12,102 +12,144 @@
     <!--=====================================================================
         Runtime checking. If false, whole section is irrelevant.
        ======================================================================-->
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsEnableRuntimeChecking Condition="
+     '$(CodeContractsEnableRuntimeChecking)' == ''">False</CodeContractsEnableRuntimeChecking>
 
     <!-- Assembly mode, 1 = standard, 2 = advanced.  -->
-    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+    <CodeContractsAssemblyMode Condition="
+     '$(CodeContractsAssemblyMode)' == ''">1</CodeContractsAssemblyMode>
 
     <!-- Level drop-down: Full, Pre and Post, Preconditions, ReleaseRequires, None -->
-    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsRuntimeCheckingLevel Condition="
+     '$(CodeContractsRuntimeCheckingLevel)' == ''">Full</CodeContractsRuntimeCheckingLevel>
     <!-- [ ] Only public surface contracts -->
-    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeOnlyPublicSurface Condition="
+     '$(CodeContractsRuntimeOnlyPublicSurface)' == ''">False</CodeContractsRuntimeOnlyPublicSurface>
     <!-- [ ] Assert on contract failure -->
-    <CodeContractsRuntimeThrowOnFailure>False</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeThrowOnFailure Condition="
+     '$(CodeContractsRuntimeThrowOnFailure)' == ''">False</CodeContractsRuntimeThrowOnFailure>
     <!-- [ ] Call-site requires checking -->
-    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeCallSiteRequires Condition="
+     '$(CodeContractsRuntimeCallSiteRequires)' == ''">False</CodeContractsRuntimeCallSiteRequires>
     <!-- [ ] Skip quantifiers -->
-    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRuntimeSkipQuantifiers Condition="
+     '$(CodeContractsRuntimeSkipQuantifiers)' == ''">False</CodeContractsRuntimeSkipQuantifiers>
 
-    <!-- Customr rewriter methods / Assembly -->
-    <CodeContractsCustomRewriterAssembly />
-    <!-- Customr rewriter methods / Class -->
-    <CodeContractsCustomRewriterClass />
+    <!-- Customer rewriter methods / Assembly -->
+    <CodeContractsCustomRewriterAssembly Condition="
+     '$(CodeContractsCustomRewriterAssembly)' == ''" />
+    <!-- Customer rewriter methods / Class -->
+    <CodeContractsCustomRewriterClass Condition="
+     '$(CodeContractsCustomRewriterClass)' == ''" />
 
     <!--=====================================================================
         Static checking. If false, whole section is irrelevant.
        ======================================================================-->
-    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsRunCodeAnalysis Condition="
+     '$(CodeContractsRunCodeAnalysis)' == ''">True</CodeContractsRunCodeAnalysis>
 
     <!-- [X] Check non-null -->
-    <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
+    <CodeContractsNonNullObligations Condition="
+     '$(CodeContractsNonNullObligations)' == ''">True</CodeContractsNonNullObligations>
     <!-- [X] Check enum values -->
-    <CodeContractsEnumObligations>True</CodeContractsEnumObligations>
+    <CodeContractsEnumObligations Condition="
+     '$(CodeContractsEnumObligations)' == ''">True</CodeContractsEnumObligations>
     <!-- [X] Check redundant assume -->
-    <CodeContractsRedundantAssumptions>True</CodeContractsRedundantAssumptions>
+    <CodeContractsRedundantAssumptions Condition="
+     '$(CodeContractsRedundantAssumptions)' == ''">True</CodeContractsRedundantAssumptions>
     <!-- [ ] Show entry assumptions -->
-    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestAssumptions Condition="
+     '$(CodeContractsSuggestAssumptions)' == ''">False</CodeContractsSuggestAssumptions>
     <!-- [ ] Suggest requires -->
-    <CodeContractsSuggestRequires>False</CodeContractsSuggestRequires>
+    <CodeContractsSuggestRequires Condition="
+     '$(CodeContractsSuggestRequires)' == ''">False</CodeContractsSuggestRequires>
     <!-- [X] Suggest asserts to contracts -->
-    <CodeContractsAssertsToContractsCheckBox>True</CodeContractsAssertsToContractsCheckBox>
+    <CodeContractsAssertsToContractsCheckBox Condition="
+     '$(CodeContractsAssertsToContractsCheckBox)' == ''">True</CodeContractsAssertsToContractsCheckBox>
     <!-- [X] Infer requires -->
-    <CodeContractsInferRequires>True</CodeContractsInferRequires>
+    <CodeContractsInferRequires Condition="
+     '$(CodeContractsInferRequires)' == ''">True</CodeContractsInferRequires>
     <!-- [ ] Infer ensures -->
-    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferEnsures Condition="
+     '$(CodeContractsInferEnsures)' == ''">False</CodeContractsInferEnsures>
     <!-- [X] Check arithmetic -->
-    <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
+    <CodeContractsArithmeticObligations Condition="
+     '$(CodeContractsArithmeticObligations)' == ''">True</CodeContractsArithmeticObligations>
     <!-- [X] Check missing public requires -->
-    <CodeContractsMissingPublicRequiresAsWarnings>True</CodeContractsMissingPublicRequiresAsWarnings>
+    <CodeContractsMissingPublicRequiresAsWarnings Condition="
+     '$(CodeContractsMissingPublicRequiresAsWarnings)' == ''">True</CodeContractsMissingPublicRequiresAsWarnings>
     <!-- [X] Check redundant conditionals -->
-    <CodeContractsRedundantTests>True</CodeContractsRedundantTests>
+    <CodeContractsRedundantTests Condition="
+     '$(CodeContractsRedundantTests)' == ''">True</CodeContractsRedundantTests>
     <!-- [ ] Show external assumptions -->
-    <CodeContractsSuggestAssumptionsForCallees>False</CodeContractsSuggestAssumptionsForCallees>
+    <CodeContractsSuggestAssumptionsForCallees Condition="
+     '$(CodeContractsSuggestAssumptionsForCallees)' == ''">False</CodeContractsSuggestAssumptionsForCallees>
     <!-- [X] Suggest readonly fields -->
-    <CodeContractsSuggestReadonly>True</CodeContractsSuggestReadonly>
+    <CodeContractsSuggestReadonly Condition="
+     '$(CodeContractsSuggestReadonly)' == ''">True</CodeContractsSuggestReadonly>
     <!-- [X] Suggest necessary ensures -->
-    <CodeContractsNecessaryEnsures>True</CodeContractsNecessaryEnsures>
+    <CodeContractsNecessaryEnsures Condition="
+     '$(CodeContractsNecessaryEnsures)' == ''">True</CodeContractsNecessaryEnsures>
     <!-- [ ] Infer invariants for readonly -->
-    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsInferObjectInvariants Condition="
+     '$(CodeContractsInferObjectInvariants)' == ''">False</CodeContractsInferObjectInvariants>
     <!-- [X] Infer ensures for autoproperties -->
-    <CodeContractsInferEnsuresAutoProperties>True</CodeContractsInferEnsuresAutoProperties>
+    <CodeContractsInferEnsuresAutoProperties Condition="
+     '$(CodeContractsInferEnsuresAutoProperties)' == ''">True</CodeContractsInferEnsuresAutoProperties>
     <!-- [ ] Fail build on warnings -->
-    <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
+    <CodeContractsFailBuildOnWarnings Condition="
+     '$(CodeContractsFailBuildOnWarnings)' == ''">False</CodeContractsFailBuildOnWarnings>
     <!-- [X] Check array bounds -->
-    <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
+    <CodeContractsBoundsObligations Condition="
+     '$(CodeContractsBoundsObligations)' == ''">True</CodeContractsBoundsObligations>
     <!-- [ ] Check missing public ensures -->
-    <CodeContractsMissingPublicEnsuresAsWarnings>False</CodeContractsMissingPublicEnsuresAsWarnings>
+    <CodeContractsMissingPublicEnsuresAsWarnings Condition="
+     '$(CodeContractsMissingPublicEnsuresAsWarnings)' == ''">False</CodeContractsMissingPublicEnsuresAsWarnings>
     <!-- [ ] Suggest object invariants -->
-    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
+    <CodeContractsSuggestObjectInvariants Condition="
+     '$(CodeContractsSuggestObjectInvariants)' == ''">False</CodeContractsSuggestObjectInvariants>
 
     <!-- [X] Cache results -->
-    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsCacheAnalysisResults Condition="
+     '$(CodeContractsCacheAnalysisResults)' == ''">True</CodeContractsCacheAnalysisResults>
     <!-- SQL Server -->
-    <CodeContractsSQLServerOption />
+    <CodeContractsSQLServerOption Condition="
+     '$(CodeContractsSQLServerOption)' == ''" />
     <!-- [ ] Skip the analysis if cannot connect to cache -->
-    <CodeContractsSkipAnalysisIfCannotConnectToCache>False</CodeContractsSkipAnalysisIfCannotConnectToCache>
+    <CodeContractsSkipAnalysisIfCannotConnectToCache Condition="
+     '$(CodeContractsSkipAnalysisIfCannotConnectToCache)' == ''">False</CodeContractsSkipAnalysisIfCannotConnectToCache>
     <!-- Warning level slider, 0..3 -->
-    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+    <CodeContractsAnalysisWarningLevel Condition="
+     '$(CodeContractsAnalysisWarningLevel)' == ''">0</CodeContractsAnalysisWarningLevel>
     <!-- [X] Be optimistic on external API -->
-    <CodeContractsBeingOptimisticOnExternal>True</CodeContractsBeingOptimisticOnExternal>
+    <CodeContractsBeingOptimisticOnExternal Condition="
+     '$(CodeContractsBeingOptimisticOnExternal)' == ''">True</CodeContractsBeingOptimisticOnExternal>
     <!-- [ ] Baseline -->
-    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsUseBaseLine Condition="
+     '$(CodeContractsUseBaseLine)' == ''">False</CodeContractsUseBaseLine>
     <!-- Baseline file -->
-    <CodeContractsBaseLineFile />
+    <CodeContractsBaseLineFile Condition="
+     '$()CodeContractsBaseLineFile' == ''" />
 
     <!-- Contract reference assembly -->
-    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <CodeContractsReferenceAssembly Condition="
+     '$(CodeContractsReferenceAssembly)' == ''">Build</CodeContractsReferenceAssembly>
     <!-- [ ] Emit contracts into XML doc file -->
-    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsEmitXMLDocs Condition="
+     '$(CodeContractsEmitXMLDocs)' == ''">False</CodeContractsEmitXMLDocs>
 
     <!--=====================================================================
         Advanced options.
        ======================================================================-->
 
     <!-- Extra contract library paths -->
-    <CodeContractsLibPaths />
+    <CodeContractsLibPaths Condition="
+     '$(CodeContractsLibPaths)' == ''" />
     <!-- Extra runtime checker options -->
-    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraRewriteOptions Condition="
+     '$(CodeContractsExtraRewriteOptions)' == ''" />
     <!-- Extra static checker options -->
-    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsExtraAnalysisOptions Condition="
+     '$(CodeContractsExtraAnalysisOptions)' == ''" />
   </PropertyGroup>
 </Project>
