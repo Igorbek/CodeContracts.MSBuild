@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+- Add `.props` file to initialize all contract default settings (#14, thanks to @kkm000)
+### Changed
+- Marked package with `developmentDependency=true` (#15, thanks to @kkm000)
 
 ## [1.11-alpha] - 2017-12-02
 ### Added
