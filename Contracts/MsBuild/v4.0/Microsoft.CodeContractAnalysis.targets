@@ -143,7 +143,7 @@
         Condition="'$(CodeContractsClassLibrary)' != ''">$(CodeContractCodeAnalysisOptions) -cclib "$(CodeContractsClassLibrary)"</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsAssemblyMode)' == '1'">$(CodeContractCodeAnalysisOptions) -assemblyMode=standard</CodeContractCodeAnalysisOptions>
-      <CodeContractCodeAnalysisOptions>$(CodeContractCodeAnalysisOptions) -maxwarnings 400</CodeContractCodeAnalysisOptions>
+      <CodeContractCodeAnalysisOptions>$(CodeContractCodeAnalysisOptions) -maxwarnings 1200</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsNonNullObligations)' != 'true'">$(CodeContractCodeAnalysisOptions) -nonnull:noObl</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
@@ -160,7 +160,7 @@
         Condition="'$(CodeContractsRedundantAssumptions)' == 'true'">$(CodeContractCodeAnalysisOptions) -check assumptions</CodeContractCodeAnalysisOptions>        
      <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsAssertsToContractsCheckBox)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest asserttocontracts</CodeContractCodeAnalysisOptions>        
-    	<CodeContractCodeAnalysisOptions
+		<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsRedundantTests)' == 'true'">$(CodeContractCodeAnalysisOptions) -check conditionsvalidity</CodeContractCodeAnalysisOptions>        		
 	  <CodeContractCodeAnalysisOptions
 	    Condition="'$(CodeContractsMissingPublicRequiresAsWarnings)' == 'true'">$(CodeContractCodeAnalysisOptions) -missingPublicRequiresAreErrors</CodeContractCodeAnalysisOptions>
@@ -170,29 +170,29 @@
         Condition="'$(CodeContractsSuggestAssumptionsForCallees)' == 'true'">$(CodeContractCodeAnalysisOptions)  -suggest calleeassumes</CodeContractCodeAnalysisOptions>
 	<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestAssumptions)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest assumes</CodeContractCodeAnalysisOptions>
-      <CodeContractCodeAnalysisOptions
-        Condition="'$(CodeContractsSuggestRequires)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest requires</CodeContractCodeAnalysisOptions>
-      <CodeContractCodeAnalysisOptions
-        Condition="'$(CodeContractsSuggestEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest methodensures -suggest propertyensures</CodeContractCodeAnalysisOptions>
     <CodeContractCodeAnalysisOptions
-        Condition="'$(CodeContractsInferEnsuresAutoProperties)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer autopropertiesensures</CodeContractCodeAnalysisOptions>
-		<CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsSuggestRequires)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest requires</CodeContractCodeAnalysisOptions>
+    <CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsSuggestEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest methodensures -suggest propertyensures</CodeContractCodeAnalysisOptions>
+      <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsNecessaryEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest necessaryensures</CodeContractCodeAnalysisOptions>
-	<CodeContractCodeAnalysisOptions
+		<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSuggestObjectInvariants)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest objectinvariants</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
-        Condition="'$(CodeContractsSuggestReadonly)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest readonlyfields </CodeContractCodeAnalysisOptions>
+        Condition="'$(CodeContractsSuggestReadonly)' == 'true'">$(CodeContractCodeAnalysisOptions) -suggest readonlyfields</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsInferRequires)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer requires</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsInferEnsures)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer methodensures</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
+        Condition="'$(CodeContractsInferEnsuresAutoProperties)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer autopropertiesensures</CodeContractCodeAnalysisOptions>
+    <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsInferObjectInvariants)' == 'true'">$(CodeContractCodeAnalysisOptions) -infer objectinvariants</CodeContractCodeAnalysisOptions>     
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsCacheAnalysisResults)' == 'true'">$(CodeContractCodeAnalysisOptions) -cache</CodeContractCodeAnalysisOptions>
-    <CodeContractCodeAnalysisOptions
+ 	<CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsSkipAnalysisIfCannotConnectToCache)' == 'true'">$(CodeContractCodeAnalysisOptions) -forcecacheserver=true</CodeContractCodeAnalysisOptions>
-   <CodeContractCodeAnalysisOptions
+     <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsFailBuildOnWarnings)' == 'true'">$(CodeContractCodeAnalysisOptions) -failOnWarnings</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsCacheDirectory)' != ''">$(CodeContractCodeAnalysisOptions) -cacheFileDirectory "$(CodeContractsCacheDirectory)"</CodeContractCodeAnalysisOptions>
@@ -206,7 +206,7 @@
         Condition="'$(CodeContractsTargetType)' != ''">$(CodeContractCodeAnalysisOptions) -typeNameSelect:$(CodeContractsTargetType)</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsBeingOptimisticOnExternal)' == 'false'">$(CodeContractCodeAnalysisOptions)  -lowScoreForExternal=false</CodeContractCodeAnalysisOptions>
-		<CodeContractCodeAnalysisOptions
+     <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsTargetNamespace)' != ''">$(CodeContractCodeAnalysisOptions) -namespaceSelect:$(CodeContractsTargetNamespace)</CodeContractCodeAnalysisOptions>
       <CodeContractCodeAnalysisOptions
         Condition="'$(CodeContractsUseBaseLine)' == 'true' and '$(CodeContractsBaseLineFile)' != ''">$(CodeContractCodeAnalysisOptions) -baseline "$(CodeContractsBaseLineFile)"</CodeContractCodeAnalysisOptions>

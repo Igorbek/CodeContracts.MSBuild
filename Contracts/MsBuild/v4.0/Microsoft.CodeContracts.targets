@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <!--=====================================================================
-      Begin Microsoft Code Contracts 
+      Begin Microsoft Code Contracts
   ======================================================================-->
 
   <PropertyGroup>
-    <CodeContractsDeclDir>$(OutDir)CodeContractsDeclarative\</CodeContractsDeclDir>
+    <CodeContractsDeclDir>$(IntermediateOutputPath)Decl\</CodeContractsDeclDir>
     <CodeContractsContractSubDir>CodeContracts\</CodeContractsContractSubDir>
     <CodeContractsCCRefgenCommand>$(CodeContractsInstallDir)Bin\ccrefgen.exe</CodeContractsCCRefgenCommand>
   </PropertyGroup>
@@ -50,14 +50,14 @@
             <CodeContractsReferenceAssemblyLibPath>$(CodeContractsInstallDir)Contracts\.NETFramework\v4.0</CodeContractsReferenceAssemblyLibPath>
           </PropertyGroup>
         </When>
-        <When Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
+        <When Condition="$(TargetFrameworkVersion.StartsWith('v4.5'))">
           <PropertyGroup>
             <CodeContractsReferenceAssemblyLibPath>$(CodeContractsInstallDir)Contracts\.NETFramework\v4.5</CodeContractsReferenceAssemblyLibPath>
           </PropertyGroup>
         </When>
-        <When Condition="'$(TargetFrameworkVersion)' == 'v4.5.1'">
+        <When Condition="$(TargetFrameworkVersion.StartsWith('v4.'))">
           <PropertyGroup>
-            <CodeContractsReferenceAssemblyLibPath>$(CodeContractsInstallDir)Contracts\.NETFramework\v4.5</CodeContractsReferenceAssemblyLibPath>
+            <CodeContractsReferenceAssemblyLibPath>$(CodeContractsInstallDir)Contracts\.NETFramework\v4.6</CodeContractsReferenceAssemblyLibPath>
           </PropertyGroup>
         </When>
         <Otherwise>
@@ -77,7 +77,7 @@
       VS property build pane picks it up and may persist it into the project
       settings!
     =====================================================================-->
-  
+
   <PropertyGroup>
     <CompileDependsOn>CodeContractsSlipInDefineSymbolDynamically;$(CompileDependsOn);CodeContractReferenceAssembly</CompileDependsOn>
   </PropertyGroup>
@@ -271,7 +271,7 @@
 
   <Target
      Name="CodeContractReSign"
-     Condition="'$(DelaySign)' != 'true'"   
+     Condition="'$(DelaySign)' != 'true'"
      >
     <GetFrameworkSdkPath>
       <Output
@@ -279,16 +279,18 @@
          PropertyName="CodeContractsSdkPath" />
     </GetFrameworkSdkPath>
     <PropertyGroup>
-      <CodeContractsSnExe>"$(CodeContractsSdkPath)Bin\NETFX 4.0 Tools\sn.exe"</CodeContractsSnExe>
+      <!-- SN is in the Framework SDK tools path, but TargetFrameworkSDKToolsDirectory isn't always available  -->
+      <CodeContractsSnExe Condition=" '$(TargetFrameworkSDKToolsDirectory)' != '' ">$(TargetFrameworkSDKToolsDirectory)sn.exe</CodeContractsSnExe>
+      <CodeContractsSnExe Condition=" '$(TargetFrameworkSDKToolsDirectory)' == '' ">$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.6 Tools\sn.exe</CodeContractsSnExe>
     </PropertyGroup>
     <Exec
-       Condition="'$(KeyOriginatorFile)' != ''"   
-       Command='$(CodeContractsSnExe) /R "@(IntermediateAssembly)" "$(KeyOriginatorFile)"' />
+       Condition="'$(KeyOriginatorFile)' != ''"
+       Command='&quot;$(CodeContractsSnExe)&quot; /R "@(IntermediateAssembly)" "$(KeyOriginatorFile)"' />
     <Exec
-       Condition="'$(KeyContainerName)' != ''"   
-       Command='$(CodeContractsSnExe) /Rc "@(IntermediateAssembly)" "$(KeyContainerName)"' />
+       Condition="'$(KeyContainerName)' != ''"
+       Command='&quot;$(CodeContractsSnExe)&quot; /Rc "@(IntermediateAssembly)" "$(KeyContainerName)"' />
   </Target>
-  
+
   <Target
      Name="CodeContractInstrument"
      Condition="'$(CodeContractsEnableRuntimeChecking)' == 'true' and '$(BuildingProject)'=='true'"
@@ -374,7 +376,7 @@
      Name="MakeCodeContractOutputDirectory"
      Condition="!Exists(@(CodeContractOutputDirectory))"
      >
-    <Message 
+    <Message
        Text="Making directory @(CodeContractOutputDirectory)"
        />
     <MakeDir
@@ -415,7 +417,7 @@
        Condition="!Exists('$(CodeContractsDeclDir)')"
        Directories="$(CodeContractsDeclDir)"/>
   </Target>
-  
+
   <Target
      Name="ContractDeclarativeAssemblyVB"
      Condition="'$(Language)'=='VB'"
@@ -431,7 +433,7 @@
     <Vbc  Condition=" '%(_CoreCompileResourceInputs.WithCulture)' != 'true' "
           AdditionalLibPaths="$(AdditionalLibPaths)"
           AddModules="@(AddModules)"
-          BaseAddress="$(BaseAddress)"          
+          BaseAddress="$(BaseAddress)"
           CodePage="$(CodePage)"
           DebugType="$(DebugType)"
           DefineConstants="$(FinalDefineConstants),CONTRACTS_FULL=-1,CODE_ANALYSIS=-1"
@@ -458,7 +460,7 @@
           OptionExplicit="$(OptionExplicit)"
           OptionInfer="$(OptionInfer)"
           OptionStrict="$(OptionStrict)"
-          OptionStrictType="$(OptionStrictType)" 
+          OptionStrictType="$(OptionStrictType)"
           OutputAssembly="@(ContractDeclarativeAssembly)"
           Platform="$(PlatformTarget)"
           References="@(ReferencePath)"
@@ -479,10 +481,10 @@
           WarningsAsErrors=""
           WarningsNotAsErrors="$(WarningsNotAsErrors)"
           Win32Icon="$(ApplicationIcon)"
-          Win32Manifest="$(Win32Manifest)"              
+          Win32Manifest="$(Win32Manifest)"
           Win32Resource="$(Win32Resource)"
           />
-    
+
     <ItemGroup>
       <FileWrites
          Include="@(ContractDeclarativeAssemblies)"/>
@@ -528,7 +530,7 @@
        NoWin32Manifest="$(NoWin32Manifest)"
        Optimize="true"
        OutputAssembly="@(ContractDeclarativeAssembly)"
-       PdbFile="@(ContractDeclarativeAssemblyPDB)" 
+       PdbFile="@(ContractDeclarativeAssemblyPDB)"
        Platform="$(PlatformTarget)"
        References="@(ReferencePath)"
        Resources=""
@@ -546,8 +548,8 @@
        Win32Icon=""
        Win32Manifest="$(Win32Manifest)"
        Win32Resource="$(Win32Resource)"
-       />            
-    
+       />
+
     <ItemGroup>
       <FileWrites
          Include="@(ContractDeclarativeAssemblies)"/>
@@ -628,17 +630,14 @@
       />
 
     <Exec
-       Command='"$(CodeContractsCCdocgenCommand)" "@$(IntermediateOutputPath)$(ProjectName)ccdocgen.rsp"' 
+       Command='"$(CodeContractsCCdocgenCommand)" "@$(IntermediateOutputPath)$(ProjectName)ccdocgen.rsp"'
        />
   </Target>
 
   <!--=====================================================================
-      Include Code Analysis target if present
+      Include Code Analysis target
     ======================================================================-->
-  <PropertyGroup>
-    <CodeContractAnalysisTargets>$(CodeContractsInstallDir)MsBuild\v4.0\Microsoft.CodeContractAnalysis.targets</CodeContractAnalysisTargets>
-  </PropertyGroup>
-  <Import Project="$(CodeContractAnalysisTargets)" Condition="Exists('$(CodeContractAnalysisTargets)')"/>
+  <Import Project="Microsoft.CodeContractAnalysis.targets" />
 
   <!-- End Microsoft Code Contracts -->
 </Project>

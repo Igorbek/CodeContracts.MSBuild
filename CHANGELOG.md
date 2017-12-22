@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Marked package with `developmentDependency=true` (#15, thanks to @kkm000)
 
+### Changed
+- Build uses single set of target files for all MSBuild versions 4.0 and above.
+
 ## [1.11-alpha] - 2017-12-02
 ### Added
 - Added change log
