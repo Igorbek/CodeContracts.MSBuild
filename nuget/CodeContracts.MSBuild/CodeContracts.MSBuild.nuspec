@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>CodeContracts.MSBuild</id>
-        <version>1.11.0-alpha</version>
+        <version>1.11.0</version>
         <developmentDependency>true</developmentDependency>
         <title>Microsoft Code Contracts standalone package for MSBuild</title>
         <authors>Igor Oleinikov</authors>
@@ -10,7 +10,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Helper package to use with build servers. Contains all CodeContracts binaries and integrates into MSBuild build process.</description>
         <releaseNotes>Full changelog: https://github.com/Igorbek/CodeContracts.MSBuild/blob/master/CHANGELOG.md
-1.11-alpha: CodeContracts has been updated to v1.10.20606.1-rc2 (released on 6 Jun 2016)
+1.11: CodeContracts has been updated to v1.10.20606.1-rc2 (released on 6 Jun 2016)
   Improved .net targets support
 1.10.1: Add .Net Framework 4.7.1 target support
 1.10: Stop using pre-installed CodeContract by default.
