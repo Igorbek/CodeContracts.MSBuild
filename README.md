@@ -77,7 +77,7 @@ Please refer to CodeContracts for meaning of these options.
 | `CodeContractsCacheAnalysisResults` | `True` | Cache results |
 | `CodeContractsSQLServerOption` | *empty* | SQL Server |
 | `CodeContractsSkipAnalysisIfCannotConnectToCache` | `False` | Skip the analysis if cannot connect to cache |
-| `CodeContractsAnalysisWarningLevel` | `0` | Warning level: `0`, `1, `2`, `3` |
+| `CodeContractsAnalysisWarningLevel` | `0` | Warning level: `0`, `1`, `2`, `3` |
 | `CodeContractsBeingOptimisticOnExternal` | `True` | Be optimistic on external API |
 | `CodeContractsUseBaseLine` | `False` | Baseline |
 | `CodeContractsBaseLineFile`| *empty* | Baseline file |
