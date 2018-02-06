@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.12] - 2018-02-06
 ## [1.12-rc] - 2018-01-14
 ### Added
 - Add `.props` file to initialize all contract default settings (#14, thanks to @kkm000)
@@ -43,7 +44,8 @@ All notable changes to this project will be documented in this file.
 
 ## 1.7.10908.1101-beta - 2014-10-03
 
-[Unreleased]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.12-rc...HEAD
+[Unreleased]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.12...HEAD
+[1.12]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.11...v1.12
 [1.12-rc]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.11...v1.12-rc
 [1.11]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.10.1...v1.11
 [1.11-alpha]: https://github.com/igorbek/CodeContracts.MSBuild/compare/v1.10.1...v1.11-alpha
