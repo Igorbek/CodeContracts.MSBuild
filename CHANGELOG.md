@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- Add support for Visual Studio 2019
 
 ## [1.12] - 2018-02-06
 ## [1.12-rc] - 2018-01-14

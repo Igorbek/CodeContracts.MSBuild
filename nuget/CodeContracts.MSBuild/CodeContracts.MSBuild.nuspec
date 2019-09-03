@@ -10,6 +10,8 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Helper package to use with build servers. Contains all CodeContracts binaries and integrates into MSBuild build process.</description>
         <releaseNotes>Full changelog: https://github.com/Igorbek/CodeContracts.MSBuild/blob/master/CHANGELOG.md
+1.13:
+- Add support for Visual Studio 2019
 1.12:
 - Add .props file to initialize all contract default settings
 - Marked package with developmentDependency
