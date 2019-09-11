@@ -3,5 +3,14 @@
     <PropertyGroup>
         <CodeContractsInstallDir Condition="'$(DontOverrideCodeContractsInstallDir)' != 'true'">$(MSBuildThisFileDirectory)..\Contracts\</CodeContractsInstallDir>
     </PropertyGroup>
-    <Import Condition="'$(CodeContractsImported)' != 'true' AND '$(DontImportCodeContracts)' != 'true'" Project="$(CodeContractsInstallDir)MsBuild\v$(MSBuildToolsVersion)\Microsoft.CodeContracts.targets" />
+    <PropertyGroup Condition=" '$(CodeContractsResolvedMSBuildToolsVersion)' == '' ">
+        <CodeContractsResolvedMSBuildToolsVersion>$(MSBuildToolsVersion)</CodeContractsResolvedMSBuildToolsVersion>
+        <CodeContractsResolvedMSBuildToolsVersion
+            Condition="
+                !Exists('$(CodeContractsInstallDir)MsBuild\v$(CodeContractsResolvedMSBuildToolsVersion)\Microsoft.CodeContracts.targets')
+                and ('$(MSBuildToolsVersion)' == 'Current' or '$(MSBuildToolsVersion)' == '' or '$(MSBuildToolsVersion)' > '15.0')
+            "
+        >15.0</CodeContractsResolvedMSBuildToolsVersion>
+    </PropertyGroup>
+    <Import Condition="'$(CodeContractsImported)' != 'true' AND '$(DontImportCodeContracts)' != 'true'" Project="$(CodeContractsInstallDir)MsBuild\v$(CodeContractsResolvedMSBuildToolsVersion)\Microsoft.CodeContracts.targets" />
 </Project>
