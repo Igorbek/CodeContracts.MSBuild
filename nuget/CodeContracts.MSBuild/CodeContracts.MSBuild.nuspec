@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>CodeContracts.MSBuild</id>
-        <version>1.12.0</version>
+        <version>1.13.0-rc</version>
         <developmentDependency>true</developmentDependency>
         <title>Microsoft Code Contracts standalone package for MSBuild</title>
         <authors>Igor Oleinikov</authors>

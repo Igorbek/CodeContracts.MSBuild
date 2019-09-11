@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [1.13-rc] - 2019-09-10
+### Added
 - Add support for Visual Studio 2019
 
 ## [1.12] - 2018-02-06
